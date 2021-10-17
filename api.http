@@ -1,2 +1,63 @@
+### USER SECTION
 ### Create
 POST http://localhost:3000/users/create
+Content-Type: application/json
+
+{
+    "email": "julio@teste.com",
+    "nome": "julin12",
+    "password": "123",
+    "isAdmin": "true"
+}
+
+### Read
+GET http://localhost:3000/users/list
+
+### Read by id
+GET http://localhost:3000/users/list/7
+
+### Update
+PUT http://localhost:3000/users/update/7
+Content-Type: application/json
+
+{
+    "email": "julin@dapalha.com.br",
+    "nome": "julinxiux3",
+    "password": "112312315",
+    "isAdmin": "false"
+}
+
+### Delete
+DELETE http://localhost:3000/users/delete/1
+
+
+### POST SECTION
+### Creat Post
+POST http://localhost:3000/post/create
+Content-Type: application/json
+
+{
+    "title": "Teste post",
+    "body": "Teste disso aqui",
+    "author": "Memelli"
+}
+
+### Update Post
+PUT http://localhost:3000/post/update/:postId
+Content-Type: application/json
+
+{
+    "title": "Teste put post",
+    "body": "Teste desse bagulho ai",
+    "author": "julin da palha"
+}
+
+
+### Get Post
+GET http://localhost:3000/post/list
+
+### Get Post By ID
+GET http://localhost:3000/post/list/:postId
+
+### Delete Post
+DELETE http://localhost:3000/post/delete/:postId
