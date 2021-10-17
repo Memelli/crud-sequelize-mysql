@@ -1,4 +1,4 @@
-import { DataTypes } from 'sequelize/types';
+import { DataTypes } from 'sequelize';
 import { db } from '../database/db';
 
 export const CommentModel = db.define('comments', {
@@ -8,11 +8,15 @@ export const CommentModel = db.define('comments', {
     allowNull: false,
     primaryKey: true,
   },
+  postId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
   author: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  comment: {
+  body: {
     type: DataTypes.STRING,
     allowNull: false,
   },

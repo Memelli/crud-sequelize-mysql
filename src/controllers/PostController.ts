@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import { CommentModel } from '../Models/CommentModel';
 import { PostModel } from '../Models/PostModel';
 
 class PostController {
@@ -53,7 +54,13 @@ class PostController {
       where: { id: postId },
     });
     if (post) {
-      return res.status(200).json(post);
+      const comments = await CommentModel.findAll({
+        where: { postId: postId },
+      });
+      return res.status(200).json({
+        post,
+        comments,
+      });
     } else {
       return res.status(204).json({
         message: 'Post não encontrado',
